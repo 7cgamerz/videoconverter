@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Converter Tool</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css" />
+   </head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Video Converter Tool</h1>
+            <p class="description">Convert videos to MP4, AVI, MOV, and other formats with fast processing and high quality output.</p>
+            
+            <div class="format-badges">
+                <div class="format-badge">
+                    <i class="fas fa-film"></i>
+                    MP4
+                </div>
+                <div class="format-badge">
+                    <i class="fas fa-video"></i>
+                    AVI
+                </div>
+                <div class="format-badge">
+                    <i class="fas fa-play-circle"></i>
+                    MOV
+                </div>
+                <div class="format-badge">
+                    <i class="fas fa-file-video"></i>
+                    WebM
+                </div>
+                <div class="format-badge">
+                    <i class="fas fa-photo-video"></i>
+                    MKV
+                </div>
+            </div>
+        </div>
+        
+        <div class="upload-container" id="drop-zone">
+            <i class="fas fa-cloud-upload-alt upload-icon"></i>
+            <p class="upload-text">Drag & drop videos here or click to browse</p>
+            <input type="file" id="file-input" class="file-input" accept="video/*">
+            <label for="file-input" class="file-label">
+                <i class="fas fa-plus"></i>
+                Select Video
+            </label>
+            <p id="selected-file" class="selected-file">
+                <i class="fas fa-file-video"></i>
+                <span id="file-name">No file selected</span>
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="progress-bar"></div>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <div class="control-header">
+                    <i class="fas fa-cog"></i>
+                    <h3>Output Settings</h3>
+                </div>
+                <label for="format-select">Output Format</label>
+                <select id="format-select">
+                    <option value="mp4">MP4 (Recommended)</option>
+                    <option value="avi">AVI</option>
+                    <option value="mov">MOV</option>
+                    <option value="webm">WebM</option>
+                    <option value="mkv">MKV</option>
+                    <option value="flv">FLV</option>
+                    <option value="wmv">WMV</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <div class="control-header">
+                    <i class="fas fa-sliders-h"></i>
+                    <h3>Quality Settings</h3>
+                </div>
+                <label for="quality-select">Video Quality</label>
+                <select id="quality-select">
+                    <option value="high">High (Larger file)</option>
+                    <option value="medium" selected>Medium (Recommended)</option>
+                    <option value="low">Low (Smaller file)</option>
+                </select>
+            </div>
+            
+            <div class="control-group">
+                <div class="control-header">
+                    <i class="fas fa-expand"></i>
+                    <h3>Resolution</h3>
+                </div>
+                <label for="resolution-select">Output Resolution</label>
+                <select id="resolution-select">
+                    <option value="original">Same as original</option>
+                    <option value="1080">1080p (Full HD)</option>
+                    <option value="720">720p (HD)</option>
+                    <option value="480">480p (SD)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="preview">
+            <div class="preview-item">
+                <div class="preview-header">
+                    <i class="fas fa-file-video"></i>
+                    <span class="preview-title">Original Video</span>
+                </div>
+                <div class="video-preview" id="original-preview">
+                    <i class="fas fa-video"></i>
+                </div>
+                <div class="file-info">
+                    <span>Format: <span id="original-format">-</span></span>
+                    <span>Size: <span id="original-size">-</span></span>
+                </div>
+            </div>
+            
+            <div class="preview-item">
+                <div class="preview-header">
+                    <i class="fas fa-file-video"></i>
+                    <span class="preview-title">Converted Video</span>
+                </div>
+                <div class="video-preview" id="converted-preview">
+                    <i class="fas fa-sync-alt"></i>
+                </div>
+                <div class="file-info">
+                    <span>Format: <span id="converted-format">-</span></span>
+                    <span>Size: <span id="converted-size">-</span></span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <button id="convert-btn" disabled>
+                <i class="fas fa-cogs"></i>
+                Convert Video
+            </button>
+            <button id="download-btn" disabled>
+                <i class="fas fa-download"></i>
+                Download Converted
+            </button>
+            <button id="reset-btn">
+                <i class="fas fa-redo"></i>
+                Reset All
+            </button>
+        </div>
+        
+        <div class="status" id="status">
+            <i class="fas fa-info-circle"></i>
+            <span id="status-text">Ready to convert. Select a video to begin.</span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    </body>
+    </html>
